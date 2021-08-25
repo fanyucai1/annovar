@@ -38,11 +38,7 @@
     step1   输入文件标准化，输出<sample name>.format.vcf
     step2:  使用annovar对标准化后对VCF文件进行注释
 
-# 5. 备注
-
-增删数据库对应会增加或减少条目，需要对应修改脚本中变量 **out_name**    与   **par**
-
-# 6. annovar directory目录结构
+# 5. annovar directory目录结构
 
     .
     ├── annotate_variation.pl
@@ -57,7 +53,7 @@
     ├── table_annovar.pl
     └── variants_reduction.pl
 
-# 7. humandb文件夹目录结构
+# 6. humandb文件夹目录结构
 
     humandb/
     ├── genometrax-sample-files-gff
@@ -108,4 +104,7 @@
     ├── hg19_snp138.txt
     └── hg19_snp138.txt.idx
 
+# 5. 备注
 
+增删数据库对应会增加或减少条目，需要对应修改脚本中变量:
+**out_name**    与   **par**
