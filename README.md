@@ -1,8 +1,8 @@
 # 1. [cosmic数据库更新](https://annovar.openbioinformatics.org/en/latest/user-guide/filter/)
 
-    prepare_annovar_user.pl -dbtype cosmic CosmicMutantExport.tsv -vcf CosmicCodingMuts.normal.vcf > hg38_cosmic92_coding.txt
+    prepare_annovar_user.pl -dbtype cosmic CosmicMutantExport.tsv -vcf CosmicCodingMuts.normal.vcf > hg19_cosmic94_coding.txt
 
-    prepare_annovar_user.pl -dbtype cosmic CosmicNCV.tsv -vcf CosmicNonCodingVariants.normal.vcf > hg38_cosmic92_noncoding.txt
+    prepare_annovar_user.pl -dbtype cosmic CosmicNCV.tsv -vcf CosmicNonCodingVariants.normal.vcf > hg19_cosmic94_noncoding.txt
 
 # 2. 修改gnomad211_genome与gnomad211_exome的标签
 
@@ -38,6 +38,8 @@
 # 5. 备注
 
 增删数据库对应会增加或减少条目，需要对应修改脚本中变量 **out_name**    与   **par**
+
+# 6. 
 
 
 
