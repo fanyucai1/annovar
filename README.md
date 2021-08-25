@@ -108,3 +108,7 @@
 
 增删数据库对应会增加或减少条目，需要对应修改脚本中变量:
 **out_name**    与   **par**
+
+# 6. 输出文件
+
+[test.annovar.tsv](./test.annovar.tsv)
