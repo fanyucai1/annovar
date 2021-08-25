@@ -29,7 +29,10 @@
                             sample name in vcf              
       -o OUTDIR, --outdir OUTDIR                            #输出文件夹
                             output directory
-    
+      -t TRANSCRIPT, --transcript TRANSCRIPT                #经典转录本
+                        Canonical transcript file
+      -r REF, --ref REF     annovar directory               #annovar软件与数据库文件夹
+
 流程说明：
 
     step1   输入文件标准化，输出<sample name>.format.vcf
@@ -39,7 +42,70 @@
 
 增删数据库对应会增加或减少条目，需要对应修改脚本中变量 **out_name**    与   **par**
 
-# 6. 
+# 6. annovar directory目录结构
 
+    .
+    ├── annotate_variation.pl
+    ├── canonical_transcript.txt
+    ├── coding_change.pl
+    ├── convert2annovar.pl
+    ├── example
+    ├── humandb
+    ├── index_annovar.pl
+    ├── prepare_annovar_user.pl
+    ├── retrieve_seq_from_fasta.pl
+    ├── table_annovar.pl
+    └── variants_reduction.pl
+
+# 7. humandb文件夹目录结构
+
+    humandb/
+    ├── genometrax-sample-files-gff
+    ├── GRCh37_MT_ensGeneMrna.fa
+    ├── GRCh37_MT_ensGene.txt
+    ├── hg19_AFR.sites.2015_08.txt
+    ├── hg19_AFR.sites.2015_08.txt.idx
+    ├── hg19_ALL.sites.2015_08.txt
+    ├── hg19_ALL.sites.2015_08.txt.idx
+    ├── hg19_AMR.sites.2015_08.txt
+    ├── hg19_AMR.sites.2015_08.txt.idx
+    ├── hg19_avsnp150.txt
+    ├── hg19_avsnp150.txt.idx
+    ├── hg19_clinvar_20210501.txt
+    ├── hg19_clinvar_20210501.txt.idx
+    ├── hg19_cosmic94_coding.txt
+    ├── hg19_cosmic94_noncoding.txt
+    ├── hg19_cytoBand.txt
+    ├── hg19_dbnsfp42a.txt
+    ├── hg19_dbnsfp42a.txt.idx
+    ├── hg19_EAS.sites.2015_08.txt
+    ├── hg19_EAS.sites.2015_08.txt.idx
+    ├── hg19_esp6500siv2_all.txt
+    ├── hg19_esp6500siv2_all.txt.idx
+    ├── hg19_EUR.sites.2015_08.txt
+    ├── hg19_EUR.sites.2015_08.txt.idx
+    ├── hg19_exac03.txt
+    ├── hg19_exac03.txt.idx
+    ├── hg19_example_db_generic.txt
+    ├── hg19_example_db_gff3.txt
+    ├── hg19_gnomad211_exome.txt
+    ├── hg19_gnomad211_exome.txt.idx
+    ├── hg19_gnomad211_genome.txt
+    ├── hg19_gnomad211_genome.txt.idx
+    ├── hg19_icgc28.txt
+    ├── hg19_icgc28.txt.idx
+    ├── hg19_intervar_20180118.txt
+    ├── hg19_intervar_20180118.txt.idx
+    ├── hg19_MT_ensGeneMrna.fa
+    ├── hg19_MT_ensGene.txt
+    ├── hg19_refGeneMrna.fa
+    ├── hg19_refGene.txt
+    ├── hg19_refGeneVersion.txt
+    ├── hg19_refGeneWithVerMrna.fa
+    ├── hg19_refGeneWithVer.txt
+    ├── hg19_SAS.sites.2015_08.txt
+    ├── hg19_SAS.sites.2015_08.txt.idx
+    ├── hg19_snp138.txt
+    └── hg19_snp138.txt.idx
 
 
