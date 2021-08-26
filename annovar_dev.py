@@ -146,8 +146,9 @@ def anno(vcf,outdir,prefix,Canonical_transcript_file,annovar):
 def filter(anno_file,outdir,prefix,maf):
     infile=open(anno_file,"r")
     outfile=open("%s/%s.annovar.filter.tsv"%(outdir,prefix),"w")
-    num,dbname,str_print=0,[],"true"
+    num,dbname=0,[]
     for line in infile:
+        str_print="true"
         num=num+1
         array=line.strip().split("\t")
         if num==1:
@@ -176,6 +177,8 @@ if __name__=="__main__":
     parser.add_argument("-r","--ref",help="annovar directory",required=True)
     parser.add_argument("-m","--maf",help="population frequency threshold,default=0.05",default=0.05,type=float)
     args=parser.parse_args()
-    format_vcf(args.vcf,args.sample_name,args.outdir)
-    anno("%s/%s.format.vcf"%(args.outdir,args.sample_name),args.outdir,args.sample_name,args.transcript,args.ref)
+    if not os.path.exists("%s/%s.format.vcf"%(args.outdir,args.sample_name)):
+        format_vcf(args.vcf,args.sample_name,args.outdir)
+    if not os.path.exists("%s/%s.annovar.tsv"%(args.outdir,args.sample_name)):
+        anno("%s/%s.format.vcf"%(args.outdir,args.sample_name),args.outdir,args.sample_name,args.transcript,args.ref)
     filter("%s/%s.annovar.tsv"%(args.outdir,args.sample_name),args.outdir,args.sample_name,args.maf)
