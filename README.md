@@ -20,28 +20,33 @@
 
 # 4. annovar.py
 
-    usage: [-h] -v VCF -n SAMPLE_NAME -o OUTDIR
-    
+    usage: [-h] -v VCF -n SAMPLE_NAME -o OUTDIR -t TRANSCRIPT -r REF [-m MAF]
+
     optional arguments:
       -h, --help            show this help message and exit
-      -v VCF, --vcf VCF     format vcf file                 #输入要注释的VCF文件
-      -n SAMPLE_NAME, --sample_name SAMPLE_NAME             #往往一个VCF文件中对应多个样本，需要输入VCF文件中对应的样本名
-                            sample name in vcf              
-      -o OUTDIR, --outdir OUTDIR                            #输出文件夹
+      -v VCF, --vcf VCF     format vcf file                                 #输入要注释的VCF文件
+      -n SAMPLE_NAME, --sample_name SAMPLE_NAME                             #VCF文件中对应的样本名
+                            sample name in vcf
+      -o OUTDIR, --outdir OUTDIR                                            #输出文件夹
                             output directory
-      -t TRANSCRIPT, --transcript TRANSCRIPT                #经典转录本
-                        Canonical transcript file
-      -r REF, --ref REF     annovar directory               #annovar软件与数据库文件夹
+      -t TRANSCRIPT, --transcript TRANSCRIPT                                #经典转录本
+                            Canonical transcript file
+      -r REF, --ref REF     annovar directory                               #annovar软件与数据库文件夹
+      -m MAF, --maf MAF     population frequency threshold,default=0.05     #人群频率阈值
 
 流程说明：
 
-1:  输入文件标准化，输出<sample name>.format.vcf
++   1:  输入文件VCF标准化:\<sample name\>.format.vcf 
 
-2:  使用annovar对标准化后对VCF文件进行注释
++   2:  annovar注释:\<sample name\>.annovar.tsv
 
-3:  增删数据库对应会增加或减少条目，需要对应修改脚本中变量: <out_name>    与   <par>
++   3:  位点过滤：intronic、intergenic、UTR、同义突变位点、任意人群频率数据库MAF>0.05(默认):\<sample name\>.annovar.filter.tsv*
 
-4:  annovar软件与数据库文件夹目录结构
+# 5.附录
+
+a:  增删数据库对应会增加或减少条目，需要对应修改脚本中变量:**out_name** 、 **par** 、**AF**
+
+b:  annovar软件与数据库文件夹目录结构
 
     ./
     ├── annotate_variation.pl
@@ -112,6 +117,8 @@
     ├── table_annovar.pl
     └── variants_reduction.pl
 
-# 5. 输出示例文件
+# 6. 输出示例文件
+
+[test.format.vcf](./test.format.vcf)
 
 [test.annovar.tsv](./test.annovar.tsv)
