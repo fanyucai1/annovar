@@ -32,7 +32,7 @@
       -t TRANSCRIPT, --transcript TRANSCRIPT                                #经典转录本
                             Canonical transcript file
       -r REF, --ref REF     annovar directory                               #annovar软件与数据库文件夹
-      -m MAF, --maf MAF     population frequency threshold,default=0.05     #人群频率阈值
+      -m MAF, --maf MAF     population frequency threshold,default=0.01     #人群频率阈值
 
 流程说明：
 
@@ -40,7 +40,7 @@
 
 +   2:  annovar注释:\<sample name\>.annovar.tsv
 
-+   3:  位点过滤：intronic、intergenic、UTR、同义突变位点、任意人群频率数据库MAF>0.05(默认):\<sample name\>.annovar.filter.tsv*
++   3:  位点过滤：intronic、intergenic、UTR、同义突变位点、任意人群频率数据库MAF>0.01(默认):\<sample name\>.annovar.filter.tsv*
 
 # 5.附录
 

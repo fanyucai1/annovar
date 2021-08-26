@@ -175,7 +175,7 @@ if __name__=="__main__":
     parser.add_argument("-o","--outdir",help="output directory",required=True)
     parser.add_argument("-t","--transcript",help="Canonical transcript file",required=True)
     parser.add_argument("-r","--ref",help="annovar directory",required=True)
-    parser.add_argument("-m","--maf",help="population frequency threshold,default=0.05",default=0.05,type=float)
+    parser.add_argument("-m","--maf",help="population frequency threshold,default=0.01",default=0.01,type=float)
     args=parser.parse_args()
     if not os.path.exists("%s/%s.format.vcf"%(args.outdir,args.sample_name)):
         format_vcf(args.vcf,args.sample_name,args.outdir)
