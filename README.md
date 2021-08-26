@@ -40,7 +40,7 @@
 
 +   2:  annovar注释:\<sample name\>.annovar.tsv
 
-+   3:  位点过滤：intronic、intergenic、UTR、同义突变位点、任意人群频率数据库MAF>0.01(默认):\<sample name\>.annovar.filter.tsv*
++   3:  位点过滤intronic、intergenic、UTR、synonymous SNV、MAF>0.01:\<sample name\>.annovar.filter.tsv*
 
 # 5.附录
 
