@@ -144,7 +144,7 @@ def change_anno(annovar,format_anno_file):
     for line in infile:
         line=line.strip()
         array=line.split("\t")
-        if re.search(r'splicing',array[5]) and array[7]!=".":#######判断该列是否是可变剪切列
+        if array[5]=="splicing" and array[7]!=".":#######只判定该位点是剪切不考虑类似:exonic;splicing
             new = ""
             a = array[7].split(";")######按照逗号分开该列
             for j in range(0,len(a)):
