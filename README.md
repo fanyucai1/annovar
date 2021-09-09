@@ -4,13 +4,22 @@
 
     prepare_annovar_user.pl -dbtype cosmic CosmicNCV.tsv -vcf CosmicNonCodingVariants.normal.vcf > hg19_cosmic94_noncoding.txt
 
-# 2. 修改gnomad211_genome与gnomad211_exome的标签
+# 2. GnomAD
 
-    gnomad211_genome(genome_AF)与gnomad211_exome(exome_AF)两个数据库的标签注意进行修改默认标签都是AF
+Download data:
+    axel -n20 http://www.openbioinformatics.org/annovar/download/hg19_gnomad211_exome.txt.gz
+    axel -n20 http://www.openbioinformatics.org/annovar/download/hg19_gnomad211_genome.txt.gz
+
+Same title information from gnomad211_exome and gnomad211_genome as following:
+    
+    AF AF_popmax AF_male AF_female AF_raw AF_afr AF_sas AF_amr AF_eas AF_nfe AF_fin AF_asj AF_oth non_topmed_AF_popmax non_neuro_AF_popmax non_cancer_AF_popmax controls_AF_popmax
+    
+    change the gnomad211_exome table_tile (e.g: from AF_male to exome_AF_male)
+    change the gnomad211_genome table_tile (e.g: from AF_male to genome_AF_male)
 
 # 3. 关于预测非同义突变打分：dbNSFP Information
 
-    #SIFT_score                    ≤ 0.05 was regarded as deleterious (D), and a score value >0.05 was regarded as tolerated (T)
+    #SIFT_score                      ≤ 0.05 was regarded as deleterious (D), and a score value >0.05 was regarded as tolerated (T)
     #Polyphen2_HDIV_score            ≥ 0.957, probably damaging (D); 0.453 < Polyphen2 HDIV score < 0.956, possibly damaging (P); Polyphen2 HDIV score ≤ 0.452, benign (B)
     #Polyphen2_HVAR_score            ≥ 0.909, probably damaging (D); 0.447 < Polyphen2 HVAR score < 0.909, possibly damaging (P); Polyphen2 HVAR score ≤ 0.446, benign (B)
     #LRT_score                       D, deleterious; N, neutral
