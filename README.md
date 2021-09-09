@@ -10,7 +10,7 @@
 
 # 3. 关于预测非同义突变打分：dbNSFP Information
 
-    #SIFT_score                      ≤ 0.05 was regarded as deleterious (D), and a score value >0.05 was regarded as tolerated (T)
+    #SIFT_score                    ≤ 0.05 was regarded as deleterious (D), and a score value >0.05 was regarded as tolerated (T)
     #Polyphen2_HDIV_score            ≥ 0.957, probably damaging (D); 0.453 < Polyphen2 HDIV score < 0.956, possibly damaging (P); Polyphen2 HDIV score ≤ 0.452, benign (B)
     #Polyphen2_HVAR_score            ≥ 0.909, probably damaging (D); 0.447 < Polyphen2 HVAR score < 0.909, possibly damaging (P); Polyphen2 HVAR score ≤ 0.446, benign (B)
     #LRT_score                       D, deleterious; N, neutral
@@ -20,31 +20,29 @@
 
 # 4. annovar.py
 
-    usage: [-h] -v VCF -n SAMPLE_NAME -o OUTDIR -t TRANSCRIPT -r REF [-m MAF]
+    usage: [-h] -v VCF -n SAMPLE_NAME -o OUTDIR -t TRANSCRIPT -r REF
 
     optional arguments:
       -h, --help            show this help message and exit
-      -v VCF, --vcf VCF     format vcf file                                 #输入要注释的VCF文件
-      -n SAMPLE_NAME, --sample_name SAMPLE_NAME                             #VCF文件中对应的样本名
+      -v VCF, --vcf VCF     format vcf file
+      -n SAMPLE_NAME, --sample_name SAMPLE_NAME
                             sample name in vcf
-      -o OUTDIR, --outdir OUTDIR                                            #输出文件夹
+      -o OUTDIR, --outdir OUTDIR
                             output directory
-      -t TRANSCRIPT, --transcript TRANSCRIPT                                #经典转录本
+      -t TRANSCRIPT, --transcript TRANSCRIPT
                             Canonical transcript file
-      -r REF, --ref REF     annovar directory                               #annovar软件与数据库文件夹
-      -m MAF, --maf MAF     population frequency threshold,default=0.01     #人群频率阈值
+      -r REF, --ref REF     annovar directory
+
 
 流程说明：
 
 +   1:  输入文件VCF标准化:\<sample name\>.format.vcf 
 
-+   2:  annovar注释:\<sample name\>.annovar.tsv
-
-+   3:  位点过滤intronic、intergenic、UTR、synonymous SNV、MAF>0.01:\<sample name\>.annovar.filter.tsv*
++   2:  annovar注释:\<sample name\>.raw.annovar.tsv
 
 # 5.附录
 
-a:  增删数据库对应会增加或减少条目，需要对应修改脚本中变量:**out_name** 、 **par** 、**AF**
+a:  增删数据库对应会增加或减少条目，需要对应修改脚本中变量:**out_name** 、 **par** 
 
 b:  annovar软件与数据库文件夹目录结构
 
@@ -116,9 +114,3 @@ b:  annovar软件与数据库文件夹目录结构
     ├── retrieve_seq_from_fasta.pl
     ├── table_annovar.pl
     └── variants_reduction.pl
-
-# 6. 输出示例文件
-
-[test.format.vcf](./test.format.vcf)
-
-[test.annovar.tsv](./test.annovar.tsv)
