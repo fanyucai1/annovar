@@ -144,14 +144,14 @@ def change_anno(annovar,format_anno_file):
     for line in infile:
         line=line.strip()
         array=line.split("\t")
-        if array[5]=="splicing" and array[7]!=".":#######判断该列是否是可变剪切列
+        if re.search(r'splicing',array[5]) and array[7]!=".":#######判断该列是否是可变剪切列
+            new = ""
             a = array[7].split(";")######按照逗号分开该列
-            new=""
             for j in range(0,len(a)):
                 exon_num=int(re.search(r'exon(\d+)',a[j]).group(1))###获得对应的外显子编号
                 if re.search(r'-1', a[j]) or re.search(r'-2', a[j]):
                     new += re.sub(r'exon(\d+)', "intron%s" % (exon_num - 1), a[j])+";"
-                elif re.search(r'\+1', a[j]) or re.search(r'\+2', a[j]):
+                if re.search(r'\+1', a[j]) or re.search(r'\+2', a[j]):
                     new += re.sub(r'exon', 'intron', a[j])+";"
                 else:#############chr1	46714272	46714272    T	G	splicing	RAD54L	NM_001370766:exon2:UTR5;NM_001142548:exon3:c.90+2T>G;NM_003579:exon2:c.90+2T>G
                     new+=a[j]+";"
