@@ -36,15 +36,15 @@
 
 流程说明：
 
-+   1:  输入文件VCF标准化:\<sample name\>.format.vcf 
-
-+   2:  annovar注释:\<sample name\>.raw.annovar.tsv
++ 输入文件VCF标准化:\<sample name\>.format.vcf
++ annovar注释:\<sample name\>.raw.annovar.tsv
++ annovar结果标准化：\<sample name\>.final.annovar.tsv
 
 # 5.附录
 
-a:  增删数据库对应会增加或减少条目，需要对应修改脚本中变量:**out_name** 、 **par** 
++ 增删数据库对应会增加或减少条目，需要对应修改脚本中变量:**out_name** 、 **par** 
++ annovar软件与数据库文件夹目录结构
 
-b:  annovar软件与数据库文件夹目录结构
 
     ./
     ├── annotate_variation.pl
@@ -114,3 +114,5 @@ b:  annovar软件与数据库文件夹目录结构
     ├── retrieve_seq_from_fasta.pl
     ├── table_annovar.pl
     └── variants_reduction.pl
+
+#6. 备注
