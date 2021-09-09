@@ -153,9 +153,8 @@ def change_anno(annovar,format_anno_file):
                     new += re.sub(r'exon(\d+)', "intron%s" % (exon_num - 1), a[j])+";"
                 elif re.search(r'\+1', a[j]) or re.search(r'\+2', a[j]):
                     new += re.sub(r'exon', 'intron', a[j])+";"
-                else:
-                    print(line)
-                    exit()
+                else:#############chr1	46714272	46714272    T	G	splicing	RAD54L	NM_001370766:exon2:UTR5;NM_001142548:exon3:c.90+2T>G;NM_003579:exon2:c.90+2T>G
+                    new+=a[j]+";"
             new=new.strip(";")
             #########################################################打印所有更改后的结果
             for k in range(0,len(array)):
