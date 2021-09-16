@@ -151,7 +151,7 @@ def change_anno(annovar,format_anno_file):
                 exon_num=int(re.search(r'exon(\d+)',a[j]).group(1))###获得对应的外显子编号
                 if re.search(r'-1', a[j]) or re.search(r'-2', a[j]):
                     new += re.sub(r'exon(\d+)', "intron%s" % (exon_num - 1), a[j])+";"
-                if re.search(r'\+1', a[j]) or re.search(r'\+2', a[j]):
+                elif re.search(r'\+1', a[j]) or re.search(r'\+2', a[j]):
                     new += re.sub(r'exon', 'intron', a[j])+";"
                 else:#############chr1	46714272	46714272    T	G	splicing	RAD54L	NM_001370766:exon2:UTR5;NM_001142548:exon3:c.90+2T>G;NM_003579:exon2:c.90+2T>G
                     new+=a[j]+";"
